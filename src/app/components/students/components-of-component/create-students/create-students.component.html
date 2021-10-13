@@ -1,0 +1,118 @@
+<form [formGroup]="form" (ngSubmit)="onCreate()" class="container">
+  <!--student information-->
+  <div class="row mt-5">
+    <!--Name place -->
+    <div class="form-group col-md-3">
+      <label for="nameInput">Öğrenci ismi:</label>
+      <input type="text" formControlName="studentName" class="form-control" id="nameInput"  placeholder="İsim girin">
+    </div>
+    <!--Lastname place -->
+    <div class="form-group col-md-3">
+      <label for="lastnameInput">Öğrenci Soyismi:</label>
+      <input type="text" formControlName="studentLastname" class="form-control" id="lastnameInput" placeholder="Soyisim girin">
+    </div>
+    <!--No place -->
+    <div class="form-group col-md-3">
+      <label for="noInput">Öğrenci Numarası:</label>
+      <input type="number" formControlName="studentNumber" class="form-control" id="noInput" placeholder="Numara giriniz">
+    </div>
+    <!--Man or Women -->
+    <div class="form-group col-md-3">
+      <label for="manorwomenselect">Cinsiyeti seçiniz:</label>
+      <select formControlName="studentManOWoman" class="form-control" id="manorwomenselect">
+        <option>Erkek</option>
+        <option>Kadın</option>
+      </select>
+    </div>
+  </div>
+
+  <!--Turkish-->
+  <div class="row mt-5">
+    <!--Turkish-->
+    <div class="form-group col-md-3">
+      <label>1. Türkçe notunu giriniz:</label>
+      <input formControlName="turkishFirstNote" type="number" placeholder="Not">
+
+    </div>
+    <div class="form-group col-md-3">
+      <label>2. Türkçe notunu giriniz: </label>
+      <input formControlName="turkishSecondNote" type="number" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>3. Türkçe notunu giriniz: </label>
+      <input type="number" formControlName="turkishThirdNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>Türkçe Not ortalaması: </label>
+      <input type="number" [value]="(form.value.turkishFirstNote + form.value.turkishSecondNote + form.value.turkishThirdNote)/3"   disabled placeholder="Not">
+    </div>
+  </div>
+
+  <!--Math-->
+  <div class="row mt-5">
+    <!--Math-->
+    <div class="form-group col-md-3">
+      <label>1. Matematik notu: </label>
+      <input type="number" formControlName="mathFirstNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>2. Matematik notu: </label>
+      <input type="number" formControlName="mathSecondNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>3. Matematik notu: </label>
+      <input type="number" formControlName="mathThirdNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>Matematik Not ortalaması: </label>
+      <input type="number" [value]="(form.value.mathThirdNote + form.value.mathSecondNote + form.value.mathFirstNote)/3"  disabled placeholder="Not">
+    </div>
+  </div>
+
+  <!--science-->
+  <div class="row mt-5">
+    <!--science-->
+    <div class="form-group col-md-3">
+      <label>1.Fen notunu giriniz: </label>
+      <input type="number" formControlName="scienceFirstNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>2.Fen notunu giriniz: </label>
+      <input type="number" formControlName="scienceSecondNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>3.Fen notunu giriniz: </label>
+      <input type="number" formControlName="scienceThirdNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>Fen Not ortalaması: </label>
+      <input type="number" [value]="(form.value.scienceFirstNote + form.value.scienceSecondNote + form.value.scienceThirdNote)/3"  disabled placeholder="Not">
+    </div>
+  </div>
+
+  <!--Liberal arts-->
+  <div class="row mt-5">
+    <!--Liberal arts-->
+    <div class="form-group col-md-3">
+      <label>1.Sosyal notunu giriniz: </label>
+      <input type="number" formControlName="liberalArtsFirstNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>2.Sosyal notunu giriniz: </label>
+      <input type="number" formControlName="liberalArtsSecondNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>3.Sosyal notunu giriniz: </label>
+      <input type="number" formControlName="liberalArtsThirdNote" placeholder="Not">
+    </div>
+    <div class="form-group col-md-3">
+      <label>Sosyal Not ortalaması: </label>
+      <input type="number" [value]="(form.value.liberalArtsFirstNote + form.value.liberalArtsSecondNote + form.value.liberalArtsThirdNote)/3"  disabled placeholder="Not">
+    </div>
+  </div>
+
+  <div class=" mt-3">
+    <button type="submit" class="btn btn-primary ">Kaydet</button>
+  </div>
+
+</form>

@@ -1,0 +1,48 @@
+<!--Students list place -->
+<div class="m-5">
+  <div *ngIf="studentService.students.length === 0" class="loading">Loading...</div>
+  <div *ngIf="studentService.students.length > 0">
+    <table class="table table-striped table-bordered">
+      <thead>
+
+      <tr>
+        <th scope="col" class="text-center">No</th>
+        <th scope="col" class="text-center">İsim</th>
+        <th scope="col" class="text-center">Soyism</th>
+        <th scope="col" class="text-center">Cinsiyet</th>
+        <th scope="col" class="text-center">Türkçe not ort.</th>
+        <th scope="col" class="text-center">Mat not ort.</th>
+        <th scope="col" class="text-center">Fen not ort.</th>
+        <th scope="col" class="text-center">Sosyal not ort.</th>
+        <th scope="col" class="text-center">Ayarlar
+      </tr>
+
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let student of studentService.students ; index as i">
+        <th scope="row" class="align-middle">{{student.studentNumber}}</th>
+        <td class="align-middle text-center">{{student.studentName}}</td>
+        <td class="align-middle text-center">{{student.studentLastname}}</td>
+        <td class="align-middle text-center">{{student.studentManOWoman}}</td>
+        <td class="align-middle text-center">{{(student.turkishFirstNote + student.turkishSecondNote + student.turkishThirdNote)/3}}</td>
+        <td class="align-middle text-center">{{(student.mathFirstNote + student.mathSecondNote + student.mathThirdNote)/3}}</td>
+        <td class="align-middle text-center">{{(student.scienceFirstNote + student.scienceSecondNote + student.scienceThirdNote)/3}}</td>
+        <td class="align-middle text-center">{{(student.liberalArtsFirstNote + student.liberalArtsSecondNote + student.liberalArtsThirdNote)/3}}</td>
+        <td class="align-middle">
+          <div class="text-center">
+            <button (click)="onDelete(student)" class="btn btn-danger ">Sil</button>
+          </div>
+          <div class="text-center mt-1">
+            <button (click)="onEdit(student)" class="btn btn-primary">Düzenle</button>
+          </div>
+          <div class="text-center mt-1">
+            <button routerLink="/students/{{student.id}}" class="btn btn-secondary ">Detay</button>
+          </div>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+</div>
+</div>

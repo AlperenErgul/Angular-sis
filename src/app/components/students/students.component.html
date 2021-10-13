@@ -1,0 +1,8 @@
+<app-create-students></app-create-students>
+<app-list-students (openEdit)="openUpdate($event)" ></app-list-students>
+<div *ngIf="updateModal">
+<app-update-students (onSave)="confirmUpdate($event)" ></app-update-students>
+</div>
+
+
+
